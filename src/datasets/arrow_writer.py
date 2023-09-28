@@ -555,6 +555,7 @@ class ArrowWriter:
                 arrays.append(pa.array(typed_sequence))
                 inferred_features[col] = typed_sequence.get_inferred_type()
         schema = inferred_features.arrow_schema if self.pa_writer is None else self.schema
+        print(args)
         pa_table = pa.Table.from_arrays(arrays, schema=schema)
         self.write_table(pa_table, writer_batch_size)
 
